@@ -2,7 +2,6 @@
 import express from "express"
 import { MongoClient } from "mongodb";
 import * as dotenv from 'dotenv'
-
 dotenv.config()
 const app = express();
 
@@ -15,8 +14,6 @@ console.log("Mongo is connected")
 
 app.get("/", async function (request, response) {
     response.send("🙋‍♂️, 🌏 🎊✨🤩");
-
-
 });
 
 
