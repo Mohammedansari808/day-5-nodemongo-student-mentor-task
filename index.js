@@ -14,8 +14,8 @@ await client.connect()
 console.log("Mongo is connected")
 
 app.get("/", async function (request, response) {
-    const movie = await client.db("stumentor").collection('mentors').find({}).toArray()
-    response.send(movie);
+    const allmentors = await client.db("stumentor").collection('mentors').find({}).toArray()
+    response.send(allmentors);
 
 
 });
@@ -26,8 +26,8 @@ app.get("/", async function (request, response) {
 
 // create student
 app.post("/createstudent", express.json(), async function (request, response) {
-    const movie = await client.db("stumentor").collection('students').insertOne(request.body)
-    response.send(movie);
+    const createStudent = await client.db("stumentor").collection('students').insertOne(request.body)
+    response.send(createStudent);
 });
 
 
