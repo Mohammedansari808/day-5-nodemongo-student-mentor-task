@@ -5,15 +5,17 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 const app = express();
 
+
 const PORT = process.env.PORT;
 
-const MONGO_URL = process.env.PASS
+const MONGO_URL = process.env.PASS;
 const client = new MongoClient(MONGO_URL)
 await client.connect()
 console.log("Mongo is connected")
 
 app.get("/", async function (request, response) {
-    response.send("🙋‍♂️, 🌏 🎊✨🤩");
+    const allmentors = await client.db("stumentor").collection('mentors').find({}).toArray()
+    response.send(allmentors);
 });
 
 
