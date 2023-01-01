@@ -14,8 +14,7 @@ await client.connect()
 console.log("Mongo is connected")
 
 app.get("/", async function (request, response) {
-    const allmentors = await client.db("stumentor").collection('mentors').find({}).toArray()
-    response.send(allmentors);
+    response.send("🙋‍♂️, 🌏 🎊✨🤩");
 
 
 });
